@@ -6,33 +6,15 @@ $passwordLength = $_GET["lengthPw"] ?? '';
 
 
 echo "<pev>";
-var_dump($passwordLength);
+// var_dump($passwordLength);
 
 echo "</pev>";
 
-function generate_password($chars, $lenght)
-{
-
-    $random_password = "";
-    var_dump($lenght);
-    var_dump($chars);
-
-    for ($i = 0; $i < $lenght; $i++) {
-        $character_random = $chars[mt_rand(0, strlen($chars) - 1)];
-        $random_password .= $character_random;
-    }
-    return $random_password;
-}
-
+include __DIR__ . '/function.php';
 
 $password = generate_password($permitted_chars, $passwordLength);
 
-var_dump($password);
-
-
-
-
-
+// var_dump($password);
 
 ?>
 
@@ -52,37 +34,37 @@ var_dump($password);
 
 <body>
     <header>
-        <div class="container text-center">
+        <div class="container text-center my-4 p-5">
             <h1>Generatore di password "sicure"</h1>
         </div>
     </header>
     <!-- /header -->
     <main>
-        <div class="container">
+        <div class=" container-md mt-5 p-5 shadow ">
             <div class="justify-content-center align-items-center g-2 flex-column">
                 <!-- input form -->
                 <div class="col">
                     <div class="input">
-                        <form class="col-8 m-auto d-flex gap-3" action="" method="GET">
+                        <form class="col-8 m-auto d-flex gap-3 justify-content-center align-items-baseline" action="" method="GET">
                             <label for="lengthPw">Inserisci la lunghezza della password</label>
                             <div class="input-group mb-3 w-25">
-                                <input type="number" name="lengthPw" class="form-control" required>
+                                <input type="number" name="lengthPw" class="form-control">
                                 <button class="btn btn-outline-secondary">Button</button>
                             </div>
                         </form>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card text-start shadow">
-                        <div class="card-body">
-                            <h4 class="card-title">Password Sigura</h4>
-                            <?php if (!empty($passwordLength)) : ?>
+                    <?php if (!empty($passwordLength)) : ?>
+                        <div class="card text-start shadow">
+                            <div class="card-body text-center">
+                                <h4 class="card-title">Password Sigura</h4>
                                 <p class="card-text">
                                     <?php echo $password ?>
                                 </p>
-                            <?php endif ?>
+                            </div>
                         </div>
-                    </div>
+                    <?php endif ?>
                 </div>
             </div>
         </div>
@@ -107,3 +89,9 @@ var_dump($password);
 </body>
 
 </html>
+
+<style>
+    body {
+        background-color: lightblue;
+    }
+</style>
