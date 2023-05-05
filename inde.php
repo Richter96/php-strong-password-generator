@@ -28,7 +28,21 @@ var_dump('ciao')
     </header>
     <!-- /header -->
     <main>
-
+        <div class="container">
+            <div class="justify-content-center align-items-center g-2 flex-colums">
+                <div class="col">
+                    <div class="row">
+                        <!-- buttom send length password -->
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="" aria-label="Button" aria-describedby="">
+                            <button class="btn btn-outline-secondary" type="button" id="">Button</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">Column</div>
+                <div class="col">Column</div>
+            </div>
+        </div>
     </main>
     <!-- /main -->
 
