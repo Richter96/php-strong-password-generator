@@ -1,8 +1,34 @@
 <?php
 
+$permitted_chars  =  '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
 $passwordLength = $_GET["lengthPw"] ?? 'null';
 
 var_dump($passwordLength);
+
+function generate_password($chars, $lenght)
+{
+
+    var_dump($lenght);
+    var_dump($chars);
+    $random_password = "";
+
+    for ($i = 0; $i < $lenght; $i++) {
+        $character_random = $chars[mt_rand(0, strlen($chars) - 1)];
+        $random_password .= $character_random;
+    }
+
+    echo $random_password;
+}
+
+
+generate_password($permitted_chars, $passwordLength)
+
+
+
+
+
+
 
 ?>
 
