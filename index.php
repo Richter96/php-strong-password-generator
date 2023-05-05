@@ -14,7 +14,7 @@ include __DIR__ . '/function.php';
 
 $password = generate_password($permitted_chars, $passwordLength);
 
-var_dump($password);
+// var_dump($password);
 
 ?>
 
