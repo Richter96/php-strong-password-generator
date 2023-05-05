@@ -1,6 +1,6 @@
 <?php
 
-$passwordLength = $_GET["lenghtPw"];
+$passwordLength = $_GET["lengthPw"] ?? 'null';
 
 var_dump($passwordLength);
 
@@ -35,8 +35,8 @@ var_dump($passwordLength);
                         <!-- buttom send length password -->
                         <form class="col-8 m-auto" action="" method="GET">
                             <div class="input-group mb-3">
-                                <input type="number" name="lenghtPw" class="form-control" placeholder="Inserisci la lunghezza della password da generare">
-                                <button class="btn btn-outline-secondary" type="button" id="">Button</button>
+                                <input type="number" name="lengthPw" class="form-control" placeholder="Inserisci la lunghezza della password da generare">
+                                <button class="btn btn-outline-secondary">Button</button>
                             </div>
                         </form>
 
