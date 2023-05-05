@@ -2,28 +2,32 @@
 
 $permitted_chars  =  '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
-$passwordLength = $_GET["lengthPw"] ?? 'null';
+$passwordLength = $_GET["lengthPw"] ?? '';
 
+
+echo "<pev>";
 var_dump($passwordLength);
+
+echo "</pev>";
 
 function generate_password($chars, $lenght)
 {
 
+    $random_password = "";
     var_dump($lenght);
     var_dump($chars);
-    $random_password = "";
 
     for ($i = 0; $i < $lenght; $i++) {
         $character_random = $chars[mt_rand(0, strlen($chars) - 1)];
         $random_password .= $character_random;
     }
-
-    echo $random_password;
+    return $random_password;
 }
 
 
-generate_password($permitted_chars, $passwordLength)
+$password = generate_password($permitted_chars, $passwordLength);
 
+var_dump($password);
 
 
 
@@ -55,17 +59,29 @@ generate_password($permitted_chars, $passwordLength)
     <!-- /header -->
     <main>
         <div class="container">
-            <div class="justify-content-center align-items-center g-2 flex-colums">
+            <div class="justify-content-center align-items-center g-2 flex-column">
+                <!-- input form -->
                 <div class="col">
-                    <div class="row">
-                        <!-- buttom send length password -->
-                        <form class="col-8 m-auto" action="" method="GET">
-                            <div class="input-group mb-3">
-                                <input type="number" name="lengthPw" class="form-control" placeholder="Inserisci la lunghezza della password da generare">
+                    <div class="input">
+                        <form class="col-8 m-auto d-flex gap-3" action="" method="GET">
+                            <label for="lengthPw">Inserisci la lunghezza della password</label>
+                            <div class="input-group mb-3 w-25">
+                                <input type="number" name="lengthPw" class="form-control" required>
                                 <button class="btn btn-outline-secondary">Button</button>
                             </div>
                         </form>
-
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-start shadow">
+                        <div class="card-body">
+                            <h4 class="card-title">Password Sigura</h4>
+                            <?php if (!empty($passwordLength)) : ?>
+                                <p class="card-text">
+                                    <?php echo $password ?>
+                                </p>
+                            <?php endif ?>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -73,7 +89,7 @@ generate_password($permitted_chars, $passwordLength)
     </main>
     <!-- /main -->
 
-    <footer>
+    <footer class="mt-5">
         <p class="copy">Copyright © Boolean 2023 / Riccardo Castiglione</p>
     </footer>
     <!-- /footer -->
