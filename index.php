@@ -7,12 +7,15 @@ $passwordLength = $_GET["lengthPw"] ?? 'nobody';
 
 echo "<pev>";
 var_dump($passwordLength);
-
 echo "</pev>";
 
 include __DIR__ . '/function.php';
 
-$password = generate_password($permitted_chars, $passwordLength);
+$password = '';
+
+if ($passwordLength != 'nobody') {
+    $password = generate_password($permitted_chars, $passwordLength);
+}
 
 // var_dump($password);
 
@@ -56,14 +59,16 @@ $password = generate_password($permitted_chars, $passwordLength);
                 </div>
                 <div class="col">
                     <?php if (!empty($passwordLength)) : ?>
-                        <div class="card text-start shadow">
-                            <div class="card-body text-center">
-                                <h4 class="card-title">Password Sigura</h4>
-                                <p class="card-text">
-                                    <?php echo $password ?>
-                                </p>
+                        <?php if (!empty($password)) : ?>
+                            <div class="card text-start shadow">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">Password Sigura</h4>
+                                    <p class="card-text">
+                                        <?php echo $password ?>
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        <?php endif ?>
                     <?php else : ?>
                         <div class="alert alert-warning justify-content-center d-flex align-items-center" role="alert">
                             <p class="m-0">Inserire un valore nel campo lunghezza password per generare la password</p>
