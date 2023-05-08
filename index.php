@@ -17,6 +17,7 @@ if ($passwordLength != 'nobody') {
     $password = generate_password($permitted_chars, $passwordLength);
 }
 
+
 // var_dump($password);
 
 ?>
@@ -46,8 +47,8 @@ if ($passwordLength != 'nobody') {
         <div class=" container-md mt-5 p-5 shadow ">
             <div class="justify-content-center align-items-center g-2 flex-column">
                 <!-- input form -->
-                <div class="col">
-                    <div class="input">
+                <div class="col d-flex flex-column">
+                    <div class="input length_password">
                         <form class="col-8 m-auto d-flex gap-3 justify-content-center align-items-baseline" action="" method="GET">
                             <label for="lengthPw">Inserisci la lunghezza della password</label>
                             <div class="input-group mb-3 w-25">
